@@ -1,0 +1,11 @@
+# Sample Usage
+
+//First line of code assumes you use the configuration manager to store your personal token in a field named "IEXPublicAuthToken"
+//Otherwise, pass your public token string to the SetPublicToken method 
+
+IEXCloudDotNet.IEXCloudClient.SetPublicToken(ConfigurationManager.AppSettings["IEXPublicAuthToken"]);  
+
+IEXCloudDotNet.IEXCloudClient.ChangeEnvironmentToCloud();   //May not be needed if default environment is Cloud vs. Sandbox
+
+IEXCloudDotNet.Quote quote = new IEXCloudDotNet.Quote();	//Create an instance of the IEXQuote class
+quote = IEXCloudDotNet.IEXCloudClient.GetQuote("AAPL");		//Retrieve a quote for AAPL
